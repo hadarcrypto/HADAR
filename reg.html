@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HADAR</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #ffca0b;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding-top: 6vh;
+        }
+        header {
+            background-color: black;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 1vh;
+            padding-right: 1vh;
+        }
+        .logo1 {
+            height: 13vh;
+            margin-right: -2%;
+        }
+        .logo2 {
+            height: 5vh;
+            margin-right: 2%;
+        }
+        .registration-menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            padding: 2vh;
+            border-radius: 1vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .registration-input {
+            margin: 1vh 0;
+            padding: 1vh;
+            border: none;
+            border-radius: 0.5vh;
+            width: 20vh;
+        }
+        .submit-button {
+            background-color: #ffca0b;
+            color: white;
+            border: none;
+            border-radius: 0.5vh;
+            padding: 1vh 2vh;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .telegram-link {
+            margin-left: auto;
+            height: 4vh;
+            display: flex;
+            align-items: center;
+        }
+        .telegram-link img {
+            height: 100%;
+        }
+        .logo5 {
+            height: 4vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="1.png" alt="Logo 1" class="logo1">
+        <img src="2.png" alt="Logo 2" class="logo2">
+        <a href="https://t.me/hadarcrypto" class="telegram-link">
+            <img src="3.png" alt="Telegram">
+        </a>
+        <img src="4.png" alt="Logo 4" class="logo4">
+        <img src="5.png" alt="Logo 5" class="logo5">
+    </header>
+    <div class="registration-menu">
+        <input type="text" placeholder="Telegram" class="registration-input" id="telegram">
+        <input type="password" placeholder="Password" class="registration-input" id="password">
+        <button class="submit-button" onclick="validateAndRedirect()">GO</button>
+    </div>
+    <script>
+        function validateAndRedirect() {
+            var telegramInput = document.getElementById('telegram').value;
+            var passwordInput = document.getElementById('password').value;
+            var telegramRegex = /^[a-zA-Z0-9]+$/;
+            var passwordRegex = /^(?=.*[0-9])(?=.*[a-zA-Z]).{12,}$/;
+
+            if (!telegramRegex.test(telegramInput)) {
+                alert('Telegram username should contain only English letters and numbers.');
+                return;
+            }
+
+            if (!passwordRegex.test(passwordInput)) {
+                alert('Password must be at least 12 characters long including letters and numbers.');
+                return;
+            }
+
+            window.location.href = 'site.html';
+        }
+    </script>
+</body>
+</html>

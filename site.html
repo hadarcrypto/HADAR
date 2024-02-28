@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HADAR</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #2c2c2c;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding-top: 6vh;
+        }
+        .left-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 25%;
+            height: 100vh;
+            background-color: black;
+            z-index: -1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .button {
+            width: 90%;
+            padding: 10px 0;
+            background-color: #ffca0b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.3s;
+            animation: unfold 0.5s ease-out forwards;
+        }
+        @keyframes unfold {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+        .button span {
+            display: block;
+            transform: scaleX(0);
+            animation: revealText 0.5s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        @keyframes revealText {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+        .button:hover {
+            background-color: #e0a800;
+        }
+        header {
+            background-color: black;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1vh;
+            z-index: 1;
+        }
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+        }
+        .header-right {
+            margin-left: auto;
+        }
+        .logo1 {
+            height: 10vh;
+        }
+        .logo2, .logo3, .logo4, .logo5 {
+            height: 4vh;
+        }
+        .products-container {
+            display: none; /* Початково приховано */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 50%;
+            background-color: #ffca0b; /* Колір фону */
+            border-radius: 10px; /* Закруглені кути */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 100; /* Щоб бути над іншими елементами */
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-container">
+        <button class="button"><span>DASHBOARD</span></button>
+        <button class="button"><span>STAKE</span></button>
+        <button class="button"><span>SWAP</span></button>
+        <button class="button" id="roadmapButton"><span>ROADMAP</span></button>
+        <button class="button" id="productsButton"><span>PRODUCTS</span></button>
+        <button class="button"><span>REFERRAL</span></button>
+    </div>
+    <div class="products-container" id="productsContainer">
+        Тут будуть відображені продукти.
+    </div>
+    <header>
+        <div class="header-left">
+            <img src="1.png" alt="Logo 1" class="logo1">
+            <img src="2.png" alt="Logo 2" class="logo2">
+        </div>
+        <div class="header-right">
+            <a href="https://t.me/hadarcrypto" class="telegram-link">
+                <img src="3.png" alt="Telegram" class="logo3">
+            </a>
+            <img src="4.png" alt="Logo 4" class="logo4">
+            <img src="5.png" alt="Logo 5" class="logo5">
+        </div>
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var roadmapButton = document.getElementById('roadmapButton');
+            roadmapButton.addEventListener('click', function() {
+                window.location.href = 'road.html';
+            });
+
+            var productsButton = document.getElementById('productsButton');
+            productsButton.addEventListener('click', function() {
+                var productsContainer = document.getElementById('productsContainer');
+                productsContainer.style.display = 'block'; // Показати контейнер
+            });
+        });
+    </script>
+</body>
+</html>
